@@ -1,0 +1,29 @@
+temporary = list()
+main = list()
+max = min = 0
+while True:
+    temporary.append(str(input('Nome: ')))
+    temporary.append(int(input('Peso: ')))
+    if len(main) == 0:
+        max = min = temporary[1]
+    else:
+        if temporary[1] > max:
+            max = temporary[1]
+        if temporary[1] < min:
+            min = temporary[1]
+    main.append(temporary[:])
+    temporary.clear()
+    do_you_continue = str(input('Quer continuar? [S/N] '))
+    if do_you_continue in 'Nn':
+        break
+print('-='*30)
+print(f'Ao todo você cadastrou {len(main)} pessoas.')
+print(f'O maior peso foi {max}Kg. Peso de ', end='')
+for people in main:
+    if people[1] == max:
+        print(f'{people[0]} ', end='')
+print()
+print(f'O menor peso foi de {min}Kg. Peso de ', end='')
+for people in main:
+    if people[1] == min:
+        print(f'{people[0]} ', end='')
